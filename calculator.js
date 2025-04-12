@@ -1,9 +1,5 @@
 const historyLog = [];
 
-//no need
-// let a;
-// let b;
-
 // Define a function for addition
 function add(a, b) {
     return a + b;
@@ -59,22 +55,39 @@ function addToHistory(num1, num2, operator, x){
     });
 }
 
-// Function to display calculation history
+
+
+// OPTIMAL Function to display calculation history
 function displayHistory() {
     if (historyLog.length === 0) {
         console.log("No calculations in history.");
     } else {
         console.log("Calculation History:");
-        for (let i=0; i<historyLog.length; i++) {
-            const item = historyLog[i];
-            const num1 = item.operands[0];
-            const num2 = item.operands[1];
+        historyLog.forEach((item, index) => {
+            const [num1, num2] = item.operands;
             const operator = item.operation;
             const result = item.result;
-            console.log(`${i + 1}: ${num1} ${operator} ${num2} = ${result}`);
-        }
+            console.log(`${index + 1}: ${num1} ${operator} ${num2} = ${result}`);
+        })
     }
 }
+
+// // Function to display calculation history
+// function displayHistory() {
+//     if (historyLog.length === 0) {
+//         console.log("No calculations in history.");
+//     } else {
+//         console.log("Calculation History:");
+//         for (let i=0; i<historyLog.length; i++) {
+//             const item = historyLog[i];
+//             const num1 = item.operands[0];
+//             const num2 = item.operands[1];
+//             const operator = item.operation;
+//             const result = item.result;
+//             console.log(`${i + 1}: ${num1} ${operator} ${num2} = ${result}`);
+//         }
+//     }
+// }
 
 
 
